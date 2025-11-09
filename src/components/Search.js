@@ -12,7 +12,7 @@ function Search({ searchTerm, setSearchTerm }) {
       <input
         type="text"
         id="search"
-        placeholder="Type a plant name..."
+        placeholder="Type a name to search..."
         value={searchTerm}
         onChange={handleChange}
       />
