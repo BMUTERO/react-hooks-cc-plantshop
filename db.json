@@ -34,19 +34,29 @@
       "id": 6,
       "name": "Monstera Deliciosa",
       "image": "./images/monstera.jpg",
-      "price": 25.99
+      "price": 25.99,
+      "inStock": true
     },
     {
       "id": 7,
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
-      "price": 55
+      "price": 55,
+      "inStock": false
     },
     {
       "name": "Avocado Tree",
       "image": "./images/zz-plant.jpg",
       "price": 15,
-      "id": 8
+      "id": 8,
+      "inStock": false
+    },
+    {
+      "name": "Avocado Tree",
+      "image": "./images/zz-plant.jpg",
+      "price": 123,
+      "id": 9,
+      "inStock": true
     }
   ]
 }
