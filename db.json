@@ -41,6 +41,12 @@
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
+    },
+    {
+      "name": "Avocado Tree",
+      "image": "./images/zz-plant.jpg",
+      "price": 15,
+      "id": 8
     }
   ]
 }
