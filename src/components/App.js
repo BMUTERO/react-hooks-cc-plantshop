@@ -1,38 +1,39 @@
-import React, {useState, useEffect} from "react";
-// Import header from Header.js
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
-// Import PlantPage from PlantPage.js
 import NewPlantForm from "./NewPlantForm";
 import PlantList from "./PlantList";
 import Search from "./Search";
 
-
 function App() {
   const [plants, setPlants] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  // Fetch plants from the API db.json on component mount
+
   useEffect(() => {
     fetch("http://localhost:6001/plants")
-      .then((res) => res.json())
-      .then((data) => setPlants(data));    
+      .then((res) => {
+        if (!res.ok) throw new Error("Network response was not ok");
+        return res.json();
+      })
+      .then((data) => setPlants(data))
+      .catch((err) => console.error("Fetch error:", err));
   }, []);
-
-//  Filter plants based on search term
+// Search functionality for filtering plants by name
   const filteredPlants = plants.filter((plant) =>
     plant.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-// function to add new plant
+  );  
+
+  
   const addNewPlant = (newPlant) => {
     setPlants([...plants, newPlant]);
   };
-  
 
   return (
     <div className="app">
       <Header />
-      <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <NewPlantForm onAddPlant={addNewPlant} />
-      <PlantList plants={plants} />
+       <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} /> 
+      <PlantList plants={filteredPlants} />
+     
     </div>
   );
 }
