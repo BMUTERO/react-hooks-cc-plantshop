@@ -13,8 +13,8 @@ function App() {
   // Fetch plants from the API db.json on component mount
   useEffect(() => {
     fetch("http://localhost:6001/plants")
-      .then((response) => response.json())
-      .then((data) => setPlants(data));       
+      .then((res) => res.json())
+      .then((data) => setPlants(data));    
   }, []);
 
 //  Filter plants based on search term
@@ -32,7 +32,7 @@ function App() {
       <Header />
       <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <NewPlantForm onAddPlant={addNewPlant} />
-      <PlantList plants={filteredPlants} />
+      <PlantList plants={plants} />
     </div>
   );
 }
