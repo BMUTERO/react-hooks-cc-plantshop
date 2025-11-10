@@ -10,7 +10,8 @@
       "id": 2,
       "name": "ZZ Plant",
       "image": "./images/zz-plant.jpg",
-      "price": 25.98
+      "price": 25.98,
+      "inStock": true
     },
     {
       "id": 3,

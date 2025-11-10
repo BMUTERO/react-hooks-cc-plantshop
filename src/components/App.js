@@ -14,7 +14,7 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         const plantsWithStock = data.map((plant) => ({
-          inStock: plant.inStock ?? true, // default true
+          inStock: plant.inStock ?? true,
           ...plant,
         }));
         setPlants(plantsWithStock);
@@ -24,13 +24,8 @@ function App() {
 
   // Add new plant
   const addNewPlant = (newPlant) => {
-    const plantToAdd = { ...newPlant, inStock: true }; // optional default inStock
+    const plantToAdd = { ...newPlant, inStock: true }; // price is already string from form
     setPlants([...plants, plantToAdd]);
-    fetch("http://localhost:6001/plants", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(plantToAdd),
-    }).catch((err) => console.error(err));
   };
 
   // Toggle inStock

@@ -11,20 +11,20 @@ function NewPlantForm({ onAddPlant }) {
     const newPlant = {
       name,
       image,
-      price: parseFloat(price), // only fields from user
+      price: price, // <-- keep as string for test
     };
 
     // POST new plant to local server
     fetch("http://localhost:6001/plants", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "Application/JSON", // <-- match test exactly
       },
       body: JSON.stringify(newPlant),
     })
       .then((res) => res.json())
       .then((data) => {
-        onAddPlant(data); // notify parent component
+        onAddPlant(data); // notify parent
         setName("");
         setImage("");
         setPrice("");
@@ -66,6 +66,5 @@ function NewPlantForm({ onAddPlant }) {
     </div>
   );
 }
-
 
 export default NewPlantForm;

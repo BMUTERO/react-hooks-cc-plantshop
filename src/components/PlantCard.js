@@ -1,3 +1,4 @@
+
 import React from "react";
 
 function PlantCard({ plant, onToggleStock = () => {} }) {
@@ -5,7 +6,7 @@ function PlantCard({ plant, onToggleStock = () => {} }) {
     <li className="card" data-testid="plant-item">
       <img src={plant.image} alt={plant.name} />
       <h4>{plant.name}</h4>
-      <p>Price: {plant.price}</p> {/* <-- FIXED */}
+      <p>Price: {plant.price}</p> {/* <-- no $ and no toFixed */}
       <button
         className={plant.inStock ? "primary" : ""}
         onClick={onToggleStock}
